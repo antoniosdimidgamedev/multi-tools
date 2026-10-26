@@ -8,7 +8,9 @@ import time
 
 import pytest
 
-from deskhub.features.downloads.engine import TorrentEngine
+pytest.importorskip("libtorrent", reason="python3-libtorrent binding not installed")
+
+from deskhub.features.downloads.engine import TorrentEngine  # noqa: E402
 
 
 MAGNET = ("magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567"

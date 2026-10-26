@@ -38,3 +38,13 @@ def get_logger(name: str = "deskhub") -> logging.Logger:
     logger = logging.getLogger(full)
     logger.propagate = True
     return logger
+
+
+def setup_logging() -> logging.Logger:
+    """Explicitly configure logging and return the app root logger.
+
+    Safe to call multiple times; handlers are attached only once.  ``app.py``
+    calls this at startup before any feature page is constructed.
+    """
+    get_logger("deskhub")
+    return logging.getLogger("deskhub")
