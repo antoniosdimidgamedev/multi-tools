@@ -26,6 +26,7 @@ def test_log_file_created_under_appdata(fresh_logging):
 
 
 def test_logged_events_are_structural_not_content(fresh_logging):
+    pytest.importorskip("libtorrent", reason="python3-libtorrent binding not installed")
     ls, tmp_path = fresh_logging
     # re-obtain the logger after the reload (module-level loggers are cached
     # against the pre-reload tree; app code calls get_logger at import time)

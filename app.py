@@ -12,7 +12,7 @@ def main() -> int:
     from PySide6.QtWidgets import QApplication
     from PySide6.QtGui import QPalette, QColor
 
-    app = QApplication(sys.argv)
+    app = QApplication.instance() or QApplication(sys.argv)
     app.setApplicationName("DeskHub")
     app.setOrganizationName("DeskHub")
     app.setStyle("Fusion")
@@ -56,7 +56,7 @@ def main() -> int:
 
     dl = DownloadsPage(settings, shell)
     shell.add_page("downloads", dl, "Downloads")
-    games = GamesPage(settings, shell)
+    games = GamesPage(settings)
     shell.add_page("games", games, "Games")
     ai = AIStudioPage(settings)
     shell.add_page("ai_studio", ai, "AI Studio")

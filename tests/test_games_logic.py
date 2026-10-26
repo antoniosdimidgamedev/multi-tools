@@ -116,8 +116,18 @@ class TestMemoryMatch:
         assert kind == "miss" and pair == (0, other)
         m.settle(*pair)
         assert not m.face_up[other]
-        kind, pair = m.flip(partner)
-        assert kind == "match"
+        # After a settle the board is clear, so the next flip starts a new
+        # pair ('first'); clicking the same card again is rejected ('invalid')
+        # while it stays face-up and un-matched; clicking its twin completes
+        # the pair ('match') and locks both cards.
+        kind, _ = m.flip(partner)
+        assert kind == "first"
+        assert m.face_up[partner]
+        kind, _ = m.flip(partner)
+        assert kind == "invalid"  # already face up — click ignored
+        assert not m.matched[partner]
+        kind, pair = m.flip(0)  # index 0 holds the same emoji as partner
+        assert kind == "match" and pair == (partner, 0)
         assert m.matched[0] and m.matched[partner]
 
     def test_invalid_flips(self):
