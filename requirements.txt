@@ -6,6 +6,6 @@ Pillow>=10.0
 reportlab>=4.0
 huggingface_hub>=0.20
 psutil>=5.9
-python3-libtorrent>=2.0; platform_system=="Windows" and python_version<"3.13"
+libtorrent>=2.0
 llama-cpp-python>=0.2; platform_machine!="arm64" or sys_platform!="win32"
 pytest>=8.0

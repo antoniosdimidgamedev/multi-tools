@@ -8,7 +8,7 @@ import time
 
 import pytest
 
-pytest.importorskip("libtorrent", reason="python3-libtorrent binding not installed")
+pytest.importorskip("libtorrent", reason="libtorrent binding not installed")
 
 from deskhub.features.downloads.engine import TorrentEngine  # noqa: E402
 

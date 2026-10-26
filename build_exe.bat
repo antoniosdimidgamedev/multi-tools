@@ -14,7 +14,7 @@ if errorlevel 1 (
 py -3.12 --version >nul 2>nul
 if errorlevel 1 (
     echo [ERROR] Python 3.12 is not installed. Install 3.12.x ^(64-bit^) from python.org.
-    echo         Do NOT use Python 3.15: PySide6 and python3-libtorrent have no wheels for it.
+    echo         Do NOT use Python 3.15: PySide6 and libtorrent have no wheels for it.
     pause & exit /b 1
 )
 
