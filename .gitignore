@@ -1,8 +1,4 @@
 __pycache__/
 *.pyc
-.pytest_cache/
-.venv/
-build/
-dist/
-*.spec.orig
 deskhub-fixes.bundle
+deskhub-fixes.zip
