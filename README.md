@@ -5,7 +5,7 @@ A Windows 11 launcher app with four offline-first tools: **Downloads** (BitTorre
 ## Requirements — read this first
 
 - **Python 3.12 (64-bit)** is required. Do **not** use Python 3.14/3.15 preview builds:
-  PySide6 and `python3-libtorrent` publish wheels only up to 3.13, so installs will fail or silently skip features on newer versions.
+  PySide6 and `libtorrent` (PyPI name; imported as `libtorrent`) publish wheels only up to 3.13, so installs will fail or silently skip features on newer versions.
   Download Python 3.12.x from <https://www.python.org/downloads/release/python-31210/> (check “Add python.exe to PATH”).
 - Windows 10/11 x64.
 - Optional: NVIDIA CUDA + Visual Studio Build Tools for compiling `llama-cpp-python` with GPU support (CPU-only prebuilt wheels also exist; see below).
@@ -52,7 +52,7 @@ pyinstaller --noconfirm --clean --windowed --name DeskHub ^
   app.py
 ```
 
-Output: `dist\DeskHub\DeskHub.exe` (keep the whole folder together). Add `--onefile` if you prefer a single file (slower startup). Note: the package imported as `libtorrent` comes from the `python3-libtorrent` wheel; PyInstaller collects it under the name `libtorrent`.
+Output: `dist\DeskHub\DeskHub.exe` (keep the whole folder together). Add `--onefile` if you prefer a single file (slower startup). Note: the package imported as `libtorrent` comes from the `libtorrent` (PyPI name; imported as `libtorrent`) wheel; PyInstaller collects it under the name `libtorrent`.
 
 Optional installer: point [Inno Setup](https://jrsoftware.org/isinfo.php) at `dist\DeskHub`, or wrap the app folder in an MSIX with `msix pack`.
 
